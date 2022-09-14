@@ -1,21 +1,24 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 public class Main {
-	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
-		int currentHour = scanner.nextInt();
-		int currentMinute = scanner.nextInt();
-		int currentTotalMinute = currentHour * 60 + currentMinute;
-		int plusedMinute = scanner.nextInt();
-		int finalTotalMinute = currentTotalMinute + plusedMinute;
-		int finalHour = finalTotalMinute/60;
-		int finalMinute = finalTotalMinute -finalHour*60;
-		if(finalMinute>59) {
-			finalMinute = finalMinute - 60;
-		}
-		if(finalHour>23) {
-			finalHour -= 24;
-		}
-		System.out.println(finalHour + " " + finalMinute);
-		scanner.close();
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+
+		int A = Integer.parseInt(st.nextToken());
+		int B = Integer.parseInt(st.nextToken());
+
+		int C = Integer.parseInt(br.readLine());
+		
+		int min = 60 * A + B;
+		min = min + C;
+		
+		int hour = (min / 60) % 24;
+		int minute = min % 60;
+		
+		System.out.println(hour + " " + minute);
 	}
 }
