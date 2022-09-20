@@ -14,17 +14,16 @@ public class Main {
 
 		int n = Integer.parseInt(st.nextToken());
 		int x = Integer.parseInt(st.nextToken());
-
+		
+		StringBuilder sb = new StringBuilder();
+		
 		st = new StringTokenizer(br.readLine(), " ");
 		for(int i=0; i<n; i++) {
 			int value = Integer.parseInt(st.nextToken());
 			if(value < x) {
-				bw.write(value + " ");
+				sb.append(value).append(' ');
 			}
 		}
-		br.close();
-
-		bw.flush();
-		bw.close();
+		System.out.println(sb);
 	}
 }
